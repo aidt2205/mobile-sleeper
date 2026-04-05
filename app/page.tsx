@@ -13,10 +13,11 @@ export default function HomePage() {
   const [bannerDismissed, setBannerDismissed] = useLocalStorage<boolean>('sleeper-banner-dismissed', false)
 
   const handleStart = () => {
+    const safeMinutes = Number.isFinite(minutes) && minutes > 0 ? minutes : 30
     if (mode === 'youtube') {
-      router.push(`/player?minutes=${minutes}`)
+      router.push(`/player?minutes=${safeMinutes}`)
     } else {
-      router.push(`/shortcuts?minutes=${minutes}`)
+      router.push(`/shortcuts?minutes=${safeMinutes}`)
     }
   }
 
