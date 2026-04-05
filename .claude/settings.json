@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Edit(~/.claude/skills/project-init/**)"
+    ]
+  },
+  "disabledMcpjsonServers": ["playwright", "stitch"]
+}

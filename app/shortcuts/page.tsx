@@ -8,12 +8,6 @@ import { buildShortcutLink } from '@/lib/shortcuts'
 // Replace with real iCloud link after creating the Shortcut on your iPhone
 const ICLOUD_SHORTCUT_URL = 'https://www.icloud.com/shortcuts/REPLACE_ME'
 
-const STEPS = [
-  'Tippe auf "Shortcut installieren" unten',
-  'Öffne die Kurzbefehle-App und tippe auf "Hinzufügen"',
-  'Fertig — der Shortcut "SleepTimer" ist bereit',
-]
-
 function ShortcutsContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -58,18 +52,8 @@ function ShortcutsContent() {
       <div className="flex flex-col gap-2">
         <h2 className="text-2xl font-semibold">Einmalige Einrichtung</h2>
         <p className="text-zinc-400 text-sm">
-          Installiere den iOS Shortcut, der Helligkeit auf 0% setzt und Do Not Disturb aktiviert.
+          Einmal installieren — danach setzt der Timer automatisch Helligkeit auf 0 %, Ton aus und Nicht stören.
         </p>
-      </div>
-      <div className="flex flex-col gap-4">
-        {STEPS.map((step, i) => (
-          <div key={i} className="flex items-start gap-4">
-            <span className="w-8 h-8 rounded-full bg-zinc-900 text-white flex items-center justify-center text-sm font-bold shrink-0">
-              {i + 1}
-            </span>
-            <p className="text-zinc-300 text-base pt-1">{step}</p>
-          </div>
-        ))}
       </div>
       <div className="flex flex-col gap-3 mt-auto">
         <a
