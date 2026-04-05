@@ -14,7 +14,11 @@ export function useLocalStorage<T>(key: string, initialValue: T): [T, (value: T)
   const setValue = (value: T) => {
     setStored(value)
     if (typeof window !== 'undefined') {
-      window.localStorage.setItem(key, JSON.stringify(value))
+      try {
+        window.localStorage.setItem(key, JSON.stringify(value))
+      } catch {
+        // QuotaExceededError (Safari private mode, storage full) — silent fail
+      }
     }
   }
 
