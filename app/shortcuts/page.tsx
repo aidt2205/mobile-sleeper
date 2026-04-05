@@ -6,7 +6,8 @@ import { useLocalStorage } from '@/hooks/useLocalStorage'
 import { buildShortcutLink } from '@/lib/shortcuts'
 
 // Replace with real iCloud link after creating the Shortcut on your iPhone
-const ICLOUD_SHORTCUT_URL = 'https://www.icloud.com/shortcuts/REPLACE_ME'
+const ICLOUD_SHORTCUT_URL = 'https://www.icloud.com/shortcuts/e0ab8a9e48014166bd0e8891df09bc29'
+const ICLOUD_SHORTCUT_OFF_URL = 'https://www.icloud.com/shortcuts/62c4a7bda90f46008e21a316c55f23a6'
 
 function ShortcutsContent() {
   const router = useRouter()
@@ -16,6 +17,10 @@ function ShortcutsContent() {
 
   const handleTrigger = () => {
     window.location.href = buildShortcutLink(minutes)
+  }
+
+  const handleWakeUp = () => {
+    window.location.href = 'shortcuts://run-shortcut?name=SleepTimerOff'
   }
 
   if (setupDone) {
@@ -36,6 +41,13 @@ function ShortcutsContent() {
           <p className="text-zinc-600 text-xs text-center">
             Wechsle danach zu Netflix, YouTube oder einer anderen App
           </p>
+          <div className="w-full h-px bg-zinc-800" />
+          <button
+            onClick={handleWakeUp}
+            className="py-4 rounded-full bg-zinc-800 text-white text-lg font-medium"
+          >
+            🌅 Aufwachen
+          </button>
         </div>
         <button onClick={() => router.push('/')} className="text-zinc-500 text-sm">
           ← Zurück
@@ -52,7 +64,7 @@ function ShortcutsContent() {
       <div className="flex flex-col gap-2">
         <h2 className="text-2xl font-semibold">Einmalige Einrichtung</h2>
         <p className="text-zinc-400 text-sm">
-          Einmal installieren — danach setzt der Timer automatisch Helligkeit auf 0 %, Ton aus und Nicht stören.
+          Installiere beide Shortcuts — Schlafen und Aufwachen. Danach läuft alles automatisch.
         </p>
       </div>
       <div className="flex flex-col gap-3 mt-auto">
@@ -60,13 +72,19 @@ function ShortcutsContent() {
           href={ICLOUD_SHORTCUT_URL}
           className="block py-5 rounded-full bg-white text-black text-xl font-semibold text-center"
         >
-          Shortcut installieren
+          🌙 SleepTimer installieren
+        </a>
+        <a
+          href={ICLOUD_SHORTCUT_OFF_URL}
+          className="block py-4 rounded-full bg-zinc-800 text-white text-lg font-medium text-center"
+        >
+          🌅 SleepTimerOff installieren
         </a>
         <button
           onClick={() => setSetupDone(true)}
           className="py-4 text-zinc-500 text-sm"
         >
-          Bereits installiert → Weiter
+          Beide installiert → Weiter
         </button>
       </div>
     </main>
