@@ -1,6 +1,21 @@
+let audioCtx: AudioContext | null = null
+
+function getAudioContext(): AudioContext | null {
+  try {
+    if (!audioCtx || audioCtx.state === 'closed') {
+      audioCtx = new AudioContext()
+    }
+    return audioCtx
+  } catch {
+    return null
+  }
+}
+
 export function playBeep(): void {
   try {
-    const ctx = new AudioContext()
+    const ctx = getAudioContext()
+    if (!ctx) return
+
     const oscillator = ctx.createOscillator()
     const gain = ctx.createGain()
 
@@ -14,8 +29,7 @@ export function playBeep(): void {
 
     oscillator.start(ctx.currentTime)
     oscillator.stop(ctx.currentTime + 0.5)
-    oscillator.onended = () => ctx.close()
   } catch {
-    // AudioContext unavailable (test environment, restricted policy) — silent fail
+    // AudioContext restricted (policy, iOS autoplay) — silent fail
   }
 }
