@@ -11,7 +11,7 @@ function formatTime(totalSeconds: number): string {
 
 export function CountdownDisplay({ seconds }: CountdownDisplayProps) {
   return (
-    <span className="text-white font-mono text-sm tabular-nums">
+    <span className="font-headline text-on-surface text-sm font-semibold tabular-nums">
       {formatTime(seconds)}
     </span>
   )

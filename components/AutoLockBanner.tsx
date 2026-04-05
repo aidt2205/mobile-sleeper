@@ -6,18 +6,25 @@ interface AutoLockBannerProps {
 
 export function AutoLockBanner({ onDismiss }: AutoLockBannerProps) {
   return (
-    <div className="flex items-center gap-3 bg-zinc-900 border border-zinc-700 rounded-2xl px-4 py-3 w-full">
-      <span className="text-yellow-400 text-lg">⚠️</span>
-      <p className="text-zinc-300 text-sm flex-1">
-        Für beste Ergebnisse: iOS <strong>Auto-Lock auf 1–2 Min</strong> stellen
+    <div className="bg-surface-container-low p-4 rounded-2xl flex gap-4 items-start relative w-full">
+      <div className="bg-secondary/20 p-2 rounded-full">
+        <span
+          className="material-symbols-outlined text-secondary"
+          style={{ fontVariationSettings: "'FILL' 1" }}
+        >
+          warning
+        </span>
+      </div>
+      <p className="text-on-surface-variant text-sm flex-1 leading-relaxed">
+        Für beste Ergebnisse: iOS <strong className="text-on-surface">Auto-Lock auf 1–2 Min</strong> stellen
         (Einstellungen → Anzeige & Helligkeit)
       </p>
       <button
         onClick={onDismiss}
         aria-label="Banner schließen"
-        className="text-zinc-500 text-xl px-1"
+        className="text-on-surface-variant hover:text-on-surface transition-colors duration-500"
       >
-        ×
+        <span className="material-symbols-outlined text-lg">close</span>
       </button>
     </div>
   )

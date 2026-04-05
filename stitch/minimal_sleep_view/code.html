@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Obsidian Sanctuary - Sleep Screen</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans & Manrope -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#47464c",
+                        "surface-container-lowest": "#0d0e14",
+                        "on-secondary": "#452b00",
+                        "inverse-surface": "#e3e1ea",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "surface-container-highest": "#34343b",
+                        "tertiary-fixed": "#cde6f4",
+                        "surface-container": "#1e1f26",
+                        "on-primary-fixed": "#00105b",
+                        "inverse-on-surface": "#2f3037",
+                        "on-tertiary": "#1c333e",
+                        "surface-bright": "#383940",
+                        "error": "#ffb4ab",
+                        "primary-container": "#00115e",
+                        "on-surface": "#e3e1ea",
+                        "secondary-fixed-dim": "#ffb954",
+                        "on-primary-container": "#707fd5",
+                        "error-container": "#93000a",
+                        "secondary-fixed": "#ffddb4",
+                        "primary-fixed-dim": "#bac3ff",
+                        "on-error": "#690005",
+                        "surface-tint": "#bac3ff",
+                        "on-primary": "#15267b",
+                        "surface-container-high": "#292a30",
+                        "on-tertiary-fixed-variant": "#334a55",
+                        "tertiary": "#b1cad7",
+                        "primary-fixed": "#dee0ff",
+                        "on-tertiary-fixed": "#051e28",
+                        "primary": "#bac3ff",
+                        "tertiary-fixed-dim": "#b1cad7",
+                        "surface-container-low": "#1a1b21",
+                        "outline": "#919097",
+                        "on-secondary-container": "#3c2500",
+                        "secondary": "#ffb954",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#2f3f92",
+                        "inverse-primary": "#4858ab",
+                        "background": "#121319",
+                        "on-background": "#e3e1ea",
+                        "surface-dim": "#121319",
+                        "secondary-container": "#c3841b",
+                        "surface": "#121319",
+                        "on-tertiary-container": "#708894",
+                        "on-secondary-fixed": "#291800",
+                        "surface-variant": "#34343b",
+                        "tertiary-container": "#051f29",
+                        "on-surface-variant": "#c8c5cd"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ease-out-cubic {
+            transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+        }
+        /* Extra dimming for sleep mode */
+        .sleep-overlay {
+            background: radial-gradient(circle at center, rgba(18, 19, 25, 0) 0%, rgba(13, 14, 20, 1) 100%);
+        }
+        .glow-soft {
+            filter: blur(80px);
+            opacity: 0.03;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30">
+<!-- Sleep Canvas: Full Screen Focal Point -->
+<main class="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-surface-container-lowest">
+<!-- Subtle Ambient Background Element -->
+<div class="absolute inset-0 z-0">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary rounded-full glow-soft"></div>
+<div class="absolute inset-0 sleep-overlay"></div>
+</div>
+<!-- The Content: Minimized to limit light output -->
+<div class="relative z-10 flex flex-col items-center space-y-12 px-6">
+<!-- Large Minimal Clock -->
+<div class="flex flex-col items-center">
+<span class="font-headline text-[120px] md:text-[160px] font-extrabold tracking-tighter text-on-surface/5 leading-none">
+                    02:44
+                </span>
+<span class="font-label text-sm tracking-[0.2em] text-on-surface/10 uppercase mt-4">
+                    Deep Sleep Phase
+                </span>
+</div>
+<!-- Focus Element: Muted Secondary Accent -->
+<div class="flex items-center gap-3 opacity-20">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">bedtime</span>
+<span class="font-body text-sm font-medium text-on-surface">Ocean Waves • 45m remaining</span>
+</div>
+</div>
+<!-- Interactive Instruction: Barely Visible -->
+<div class="absolute bottom-16 left-0 w-full flex justify-center z-20">
+<p class="font-label text-xs tracking-widest text-on-surface/10 font-medium">
+                Tap anywhere to exit
+            </p>
+</div>
+<!-- Hidden Interactive Layer -->
+<button aria-label="Exit Sleep Mode" class="absolute inset-0 w-full h-full cursor-none z-50 bg-transparent outline-none focus:outline-none"></button>
+</main>
+<!-- Content Hidden by Navigation Shell Rules (Transactional/Focused Journey) -->
+<!-- Navigation is suppressed per "Relevance Check" and "The Destination Rule" for a full-screen sleep view -->
+<!-- Ambient Visual Texture (Soft Grain) -->
+<div class="fixed inset-0 pointer-events-none z-[100] opacity-[0.03] mix-blend-overlay">
+<div class="w-full h-full" data-alt="Subtle dark noise texture for organic surface feel" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCETiFkFpRkydP6DvqdjFC8Xmb8mZxOcb6yN-ON0ei2zKn1VKi2VX_iAEvXjb3nfnZdRYC7NyiJkW_7EtHEcRTXLoOv7zkswvvi_9CVHRObbAh_E5w317Vn4ORlzq1w-FEq0yAV6Q0qtIsV29oRlyHk4qtrc5hzkPSQk60BIR8FnQuJVRQYAaxE17dKy0WI7IK4ozJABp9ohMgIq1X1icFegB8ckfmp9oxNCpc5YkIey2RfzPMYpYMBwLv727xC-aQZooBtyI0eTh8');"></div>
+</div>
+</body></html>

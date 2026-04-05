@@ -22,23 +22,29 @@ export function TimerPicker({ value, onChange }: TimerPickerProps) {
             key={preset}
             aria-pressed={value === preset}
             onClick={() => onChange(preset)}
-            className={`py-4 rounded-2xl text-xl font-semibold transition-colors ${
-              value === preset ? 'bg-white text-black' : 'bg-zinc-900 text-zinc-400'
-            }`}
+            className={`
+              py-4 rounded-full text-xl font-label font-semibold transition-all duration-500
+              ${value === preset
+                ? 'bg-secondary-container text-on-secondary-container'
+                : 'bg-surface-container-highest text-on-surface-variant'
+              }
+            `}
           >
             {preset}
           </button>
         ))}
       </div>
       <div className="flex items-center gap-3">
-        <span className="text-zinc-500 text-sm flex-1">Eigene Zeit (Min)</span>
+        <span className="text-on-surface-variant text-sm font-label flex-1">
+          Eigene Zeit (Min)
+        </span>
         <input
           type="number"
           min={1}
           max={180}
           value={value}
           onChange={handleCustomChange}
-          className="bg-zinc-900 text-white text-xl text-center w-20 py-3 rounded-2xl border border-zinc-800 focus:outline-none focus:border-zinc-600"
+          className="bg-surface-container-lowest text-on-surface text-xl text-center w-20 py-3 rounded-2xl border-none focus:outline-none focus:ring-2 focus:ring-primary/20"
         />
       </div>
     </div>

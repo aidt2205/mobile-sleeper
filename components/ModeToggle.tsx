@@ -9,19 +9,33 @@ interface ModeToggleProps {
 
 export function ModeToggle({ value, onChange }: ModeToggleProps) {
   return (
-    <div className="flex rounded-full bg-zinc-900 p-1 w-full">
-      {(['youtube', 'universal'] as Mode[]).map((mode) => (
-        <button
-          key={mode}
-          aria-pressed={value === mode}
-          onClick={() => onChange(mode)}
-          className={`flex-1 py-3 rounded-full text-base font-medium transition-colors ${
-            value === mode ? 'bg-white text-black' : 'text-zinc-400'
-          }`}
-        >
-          {mode === 'youtube' ? 'YouTube' : 'Universal'}
-        </button>
-      ))}
+    <div className="flex gap-2 p-1.5 bg-surface-container rounded-2xl w-full">
+      {(['youtube', 'universal'] as Mode[]).map((mode) => {
+        const active = value === mode
+        return (
+          <button
+            key={mode}
+            aria-pressed={active}
+            onClick={() => onChange(mode)}
+            className={`
+              flex-1 flex items-center justify-center gap-2 py-3 rounded-xl
+              text-base font-body font-medium transition-all duration-500
+              ${active
+                ? 'bg-surface-container-highest text-on-surface'
+                : 'text-on-surface-variant'
+              }
+            `}
+          >
+            <span
+              className={`material-symbols-outlined text-lg ${active && mode === 'youtube' ? 'text-error' : ''}`}
+              style={active ? { fontVariationSettings: "'FILL' 1" } : undefined}
+            >
+              {mode === 'youtube' ? 'smart_display' : 'language'}
+            </span>
+            {mode === 'youtube' ? 'YouTube' : 'Universal'}
+          </button>
+        )
+      })}
     </div>
   )
 }

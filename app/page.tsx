@@ -24,9 +24,16 @@ export default function HomePage() {
   return (
     <main className="flex flex-col items-center justify-between min-h-dvh px-6 py-12 gap-8">
       <div className="flex flex-col items-center gap-2">
-        <h1 className="text-4xl">🌙</h1>
-        <h2 className="text-2xl font-semibold text-white">Sleeper</h2>
-        <p className="text-zinc-500 text-sm">Sleep Timer</p>
+        <span
+          className="material-symbols-outlined text-4xl text-primary"
+          style={{ fontVariationSettings: "'FILL' 1" }}
+        >
+          bedtime
+        </span>
+        <h2 className="text-2xl font-headline font-bold tracking-tight text-primary">
+          Sleeper
+        </h2>
+        <p className="text-on-surface-variant text-sm font-label">Sleep Timer</p>
       </div>
 
       <div className="flex flex-col items-center gap-6 w-full max-w-sm">
@@ -39,7 +46,7 @@ export default function HomePage() {
 
       <button
         onClick={handleStart}
-        className="w-full max-w-sm py-5 rounded-full bg-white text-black text-xl font-semibold active:scale-95 transition-transform"
+        className="w-full max-w-sm py-5 rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary text-xl font-headline font-bold active:scale-95 transition-transform duration-500"
       >
         Timer starten
       </button>

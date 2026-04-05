@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#47464c",
+                    "surface-container-lowest": "#0d0e14",
+                    "on-secondary": "#452b00",
+                    "inverse-surface": "#e3e1ea",
+                    "on-secondary-fixed-variant": "#633f00",
+                    "surface-container-highest": "#34343b",
+                    "tertiary-fixed": "#cde6f4",
+                    "surface-container": "#1e1f26",
+                    "on-primary-fixed": "#00105b",
+                    "inverse-on-surface": "#2f3037",
+                    "on-tertiary": "#1c333e",
+                    "surface-bright": "#383940",
+                    "error": "#ffb4ab",
+                    "primary-container": "#00115e",
+                    "on-surface": "#e3e1ea",
+                    "secondary-fixed-dim": "#ffb954",
+                    "on-primary-container": "#707fd5",
+                    "error-container": "#93000a",
+                    "secondary-fixed": "#ffddb4",
+                    "primary-fixed-dim": "#bac3ff",
+                    "on-error": "#690005",
+                    "surface-tint": "#bac3ff",
+                    "on-primary": "#15267b",
+                    "surface-container-high": "#292a30",
+                    "on-tertiary-fixed-variant": "#334a55",
+                    "tertiary": "#b1cad7",
+                    "primary-fixed": "#dee0ff",
+                    "on-tertiary-fixed": "#051e28",
+                    "primary": "#bac3ff",
+                    "tertiary-fixed-dim": "#b1cad7",
+                    "surface-container-low": "#1a1b21",
+                    "outline": "#919097",
+                    "on-secondary-container": "#3c2500",
+                    "secondary": "#ffb954",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#2f3f92",
+                    "inverse-primary": "#4858ab",
+                    "background": "#121319",
+                    "on-background": "#e3e1ea",
+                    "surface-dim": "#121319",
+                    "secondary-container": "#c3841b",
+                    "surface": "#121319",
+                    "on-tertiary-container": "#708894",
+                    "on-secondary-fixed": "#291800",
+                    "surface-variant": "#34343b",
+                    "tertiary-container": "#051f29",
+                    "on-surface-variant": "#c8c5cd"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .ease-out-cubic { transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1); }
+      body { background-color: #121319; color: #e3e1ea; font-family: 'Manrope', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col items-center">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#121319]/80 backdrop-blur-xl flex items-center justify-between px-6 h-16 w-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#bac3ff]" style="font-variation-settings: 'FILL' 1;">bedtime</span>
+<h1 class="text-xl font-bold tracking-tighter text-[#bac3ff] font-headline">Obsidian Sanctuary</h1>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-[#e3e1ea] hover:opacity-80 transition-opacity cursor-pointer">account_circle</span>
+</div>
+</header>
+<main class="w-full max-w-md px-6 pt-24 pb-32 flex flex-col gap-8">
+<!-- Dismissable Warning Banner -->
+<div class="bg-surface-container-low p-4 rounded-lg flex gap-4 items-start relative group border border-outline-variant/10">
+<div class="bg-secondary/20 p-2 rounded-full">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-headline font-semibold text-sm text-on-surface">Bedtime Approaching</span>
+<p class="text-xs text-on-surface-variant leading-relaxed">Consider setting a limit to maintain your sleep hygiene tonight.</p>
+</div>
+<button class="absolute top-2 right-2 text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Mode Selector -->
+<section class="flex flex-col gap-4">
+<h2 class="font-headline text-lg font-semibold tracking-tight text-on-surface">Select Mode</h2>
+<div class="grid grid-cols-2 gap-3 p-1.5 bg-surface-container rounded-lg">
+<button class="flex items-center justify-center gap-2 py-3 px-4 bg-surface-container-highest rounded-md shadow-sm border border-outline-variant/20">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">smart_display</span>
+<span class="font-body font-bold text-sm">YouTube Mode</span>
+</button>
+<button class="flex items-center justify-center gap-2 py-3 px-4 text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">language</span>
+<span class="font-body font-medium text-sm">Universal Mode</span>
+</button>
+</div>
+</section>
+<!-- Timer Duration Picker -->
+<section class="flex flex-col gap-6">
+<div class="flex flex-col items-center py-8">
+<div class="relative w-64 h-64 flex items-center justify-center">
+<!-- Glassmorphism Ring -->
+<div class="absolute inset-0 rounded-full border-[12px] border-surface-container-highest/30"></div>
+<div class="absolute inset-0 rounded-full border-[12px] border-transparent border-t-primary border-r-primary rotate-45"></div>
+<div class="flex flex-col items-center">
+<span class="font-headline text-6xl font-extrabold tracking-tighter text-on-surface">45</span>
+<span class="font-label text-sm uppercase tracking-widest text-on-surface-variant">Minutes</span>
+</div>
+</div>
+</div>
+<!-- Presets -->
+<div class="flex flex-wrap justify-center gap-3">
+<button class="px-5 py-2.5 rounded-full bg-surface-container-highest text-on-surface font-label text-sm hover:opacity-80 transition-opacity">15</button>
+<button class="px-5 py-2.5 rounded-full bg-surface-container-highest text-on-surface font-label text-sm hover:opacity-80 transition-opacity">30</button>
+<button class="px-5 py-2.5 rounded-full bg-secondary-container text-on-secondary-container font-label font-bold text-sm">45</button>
+<button class="px-5 py-2.5 rounded-full bg-surface-container-highest text-on-surface font-label text-sm hover:opacity-80 transition-opacity">60</button>
+</div>
+<!-- Custom Input -->
+<div class="relative mt-2">
+<input class="w-full bg-surface-container-lowest border-none rounded-lg px-4 py-4 text-sm font-body text-on-surface focus:ring-2 focus:ring-primary/20 placeholder:text-on-surface-variant/40" placeholder="Enter custom duration..." type="number"/>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant/60 font-label text-xs uppercase">mins</div>
+</div>
+</section>
+<!-- Start Button -->
+<section class="mt-4">
+<button class="w-full py-5 rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline font-bold text-lg tracking-wide shadow-xl active:scale-[0.98] transition-transform ease-out-cubic duration-500">
+                Start Session
+            </button>
+</section>
+<!-- Secondary Tip Card (Asymmetry/Editorial) -->
+<section class="mt-8 flex gap-6">
+<div class="flex-1 bg-surface-container-low p-6 rounded-lg relative overflow-hidden group">
+<div class="absolute -right-4 -bottom-4 opacity-5 group-hover:scale-110 transition-transform duration-700">
+<span class="material-symbols-outlined text-[120px]">dark_mode</span>
+</div>
+<h3 class="font-headline font-bold text-lg text-primary mb-2">Deep Rest</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-4">Minimize blue light exposure before bed for better REM cycles.</p>
+<div class="flex items-center gap-1 text-secondary text-xs font-bold uppercase tracking-tighter">
+<span>Learn More</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</div>
+</div>
+<div class="w-24 h-full bg-surface-container-highest rounded-lg overflow-hidden flex flex-col">
+<img class="w-full h-full object-cover" data-alt="close-up of a glass of water on a dark oak bedside table with soft morning moonlight filter" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKqdK0tH1QxBetMk03kPI4EsqotFDRw-ogh7VErV7yc0gkSljlgG-xafzxLcDi2kiYjrhZDdxtngK9hL6ZlB-IFzWEZLEZZr7GvYRJvnfNVYK_ieUMJw-ziCpRW4KsR0GUEqQjEDiOybJOGnKIfeeMbmaVexGAcnwMR8mM-w_Gm1ni6vXCgwsvzKAz0T1nyw3JQYOtjvjJvO34fx7HIyxEIvFFbawttbBD0TVq38yPoBhefqT5-YwktpspVkPZi4_jsdbiF5osAxs"/>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-[32px] bg-[#121319]/60 backdrop-blur-md shadow-[0_-4px_24px_rgba(0,0,0,0.4)] flex justify-around items-center w-full px-4 pb-8 pt-4">
+<button class="flex flex-col items-center justify-center bg-[#1e1f26] text-[#ffb954] rounded-full px-5 py-1.5 scale-95 active:scale-90 transition-transform duration-400">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">timer</span>
+<span class="text-[11px] font-medium tracking-wide font-label">Timer</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#909094] px-5 py-1.5 hover:text-[#e3e1ea] transition-colors scale-95 active:scale-90 transition-transform duration-400">
+<span class="material-symbols-outlined">bolt</span>
+<span class="text-[11px] font-medium tracking-wide font-label">Shortcuts</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#909094] px-5 py-1.5 hover:text-[#e3e1ea] transition-colors scale-95 active:scale-90 transition-transform duration-400">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[11px] font-medium tracking-wide font-label">Settings</span>
+</button>
+</nav>
+</body></html>

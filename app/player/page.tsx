@@ -57,13 +57,14 @@ function PlayerContent() {
   }
 
   return (
-    <main className="flex flex-col min-h-dvh bg-black relative">
+    <main className="flex flex-col min-h-dvh bg-surface relative">
       <div className="flex items-center justify-between px-4 py-3">
         <button
           onClick={() => { releaseWakeLock(); reset(); router.push('/') }}
-          className="text-zinc-400 text-sm px-2 py-1"
+          className="text-on-surface-variant text-sm px-2 py-1 flex items-center gap-1 hover:text-on-surface transition-colors duration-500"
         >
-          ← Zurück
+          <span className="material-symbols-outlined text-lg">arrow_back</span>
+          Zurück
         </button>
         <CountdownDisplay seconds={remaining} />
         <div className="w-16" />
@@ -71,20 +72,22 @@ function PlayerContent() {
 
       {!videoId && (
         <div className="flex flex-col items-center justify-center flex-1 px-6 gap-4">
-          <p className="text-zinc-400 text-sm text-center">YouTube-Link einfügen</p>
+          <p className="text-on-surface-variant text-sm text-center font-label">
+            YouTube-Link einfügen
+          </p>
           <form onSubmit={handleUrlSubmit} className="flex flex-col gap-3 w-full max-w-sm">
             <input
               type="url"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               placeholder="https://youtube.com/watch?v=..."
-              className="bg-zinc-900 text-white px-4 py-4 rounded-2xl text-base border border-zinc-800 focus:outline-none focus:border-zinc-600 w-full"
+              className="bg-surface-container-lowest text-on-surface px-4 py-4 rounded-2xl text-base border-none focus:outline-none focus:ring-2 focus:ring-primary/20 w-full font-body placeholder:text-on-surface-variant/40"
               autoFocus
             />
-            {urlError && <p className="text-red-400 text-sm">{urlError}</p>}
+            {urlError && <p className="text-error text-sm">{urlError}</p>}
             <button
               type="submit"
-              className="py-4 rounded-full bg-white text-black font-semibold text-lg"
+              className="py-4 rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline font-bold text-lg transition-transform duration-500 active:scale-95"
             >
               Video laden
             </button>

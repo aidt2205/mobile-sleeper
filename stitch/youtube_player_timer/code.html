@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Obsidian Sanctuary - YouTube Sleep Timer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#47464c",
+                    "surface-container-lowest": "#0d0e14",
+                    "on-secondary": "#452b00",
+                    "inverse-surface": "#e3e1ea",
+                    "on-secondary-fixed-variant": "#633f00",
+                    "surface-container-highest": "#34343b",
+                    "tertiary-fixed": "#cde6f4",
+                    "surface-container": "#1e1f26",
+                    "on-primary-fixed": "#00105b",
+                    "inverse-on-surface": "#2f3037",
+                    "on-tertiary": "#1c333e",
+                    "surface-bright": "#383940",
+                    "error": "#ffb4ab",
+                    "primary-container": "#00115e",
+                    "on-surface": "#e3e1ea",
+                    "secondary-fixed-dim": "#ffb954",
+                    "on-primary-container": "#707fd5",
+                    "error-container": "#93000a",
+                    "secondary-fixed": "#ffddb4",
+                    "primary-fixed-dim": "#bac3ff",
+                    "on-error": "#690005",
+                    "surface-tint": "#bac3ff",
+                    "on-primary": "#15267b",
+                    "surface-container-high": "#292a30",
+                    "on-tertiary-fixed-variant": "#334a55",
+                    "tertiary": "#b1cad7",
+                    "primary-fixed": "#dee0ff",
+                    "on-tertiary-fixed": "#051e28",
+                    "primary": "#bac3ff",
+                    "tertiary-fixed-dim": "#b1cad7",
+                    "surface-container-low": "#1a1b21",
+                    "outline": "#919097",
+                    "on-secondary-container": "#3c2500",
+                    "secondary": "#ffb954",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#2f3f92",
+                    "inverse-primary": "#4858ab",
+                    "background": "#121319",
+                    "on-background": "#e3e1ea",
+                    "surface-dim": "#121319",
+                    "secondary-container": "#c3841b",
+                    "surface": "#121319",
+                    "on-tertiary-container": "#708894",
+                    "on-secondary-fixed": "#291800",
+                    "surface-variant": "#34343b",
+                    "tertiary-container": "#051f29",
+                    "on-surface-variant": "#c8c5cd"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .ease-out-cubic { transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#121319]/80 backdrop-blur-xl flex items-center justify-between px-6 h-16 w-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#bac3ff]" data-icon="bedtime">bedtime</span>
+<h1 class="text-xl font-bold tracking-tighter text-[#bac3ff]">Obsidian Sanctuary</h1>
+</div>
+<div class="flex gap-4">
+<button class="text-[#e3e1ea] hover:opacity-80 transition-opacity ease-out-cubic duration-500">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="text-[#e3e1ea] hover:opacity-80 transition-opacity ease-out-cubic duration-500">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-4xl mx-auto space-y-8">
+<!-- URL Input Section -->
+<section class="space-y-4">
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border-none rounded-lg px-6 py-4 text-on-surface placeholder:text-on-surface-variant/40 focus:ring-2 focus:ring-primary/20 transition-all font-body" placeholder="Paste YouTube URL here..." type="text"/>
+<button class="absolute right-3 top-2 bottom-2 px-6 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold text-sm">
+                    Load
+                </button>
+</div>
+</section>
+<!-- Video Player Canvas -->
+<section class="relative aspect-video rounded-lg overflow-hidden bg-surface-container shadow-2xl group">
+<img alt="Deep space nebula" class="w-full h-full object-cover opacity-60" data-alt="Cinematic wide shot of a deep blue and violet nebula with glowing stars and cosmic dust, serene and ethereal mood" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS9bw7ZwLpr7b4NQil7uPEd6x8wUlLpIqoOUH_pBZcZfsexDfxuVl47APc1N4nLS5ugGBOx1On8N--Qv3nFrtexM8f4L5GttVpAvqXFfa-Pew5_cWceXJnttEqpIoYekxQCIvRlW6M-GVX6kFlBD9CK-sJ0AKMrb9Ju0WgJG2DGhTy7Ti9jwynFPPq3UHpuuMJpcnP5S4tWVysotFQzLSAsnaLnFhCqRbna6x3RYbWrFelpIBIvNCMbBQvrDep1pZ0xm7F0SrYEAs"/>
+<!-- Video UI Overlay -->
+<div class="absolute inset-0 flex flex-col justify-between p-6">
+<div class="flex justify-between items-start opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+<span class="bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium">1080p • Live Sleep Radio</span>
+<span class="material-symbols-outlined text-white" data-icon="fullscreen">fullscreen</span>
+</div>
+<div class="flex justify-center items-center">
+<button class="w-16 h-16 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-xl border border-white/20 hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-white text-4xl" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+<div class="space-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+<div class="h-1 w-full bg-white/20 rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-1/3 shadow-[0_0_8px_rgba(255,185,84,0.6)]"></div>
+</div>
+<div class="flex justify-between text-[10px] text-white/60">
+<span>12:45</span>
+<span>48:00</span>
+</div>
+</div>
+</div>
+<!-- Wake-check Overlay (Active State) -->
+<div class="absolute inset-0 z-20 bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center p-8">
+<div class="text-center space-y-6 max-w-sm">
+<div class="space-y-2">
+<h3 class="font-headline text-2xl font-bold tracking-tight text-secondary">Still drifting?</h3>
+<p class="text-on-surface-variant text-sm">We'll pause the video in 15 seconds to save your rest.</p>
+</div>
+<div class="relative inline-flex items-center justify-center">
+<svg class="w-24 h-24 transform -rotate-90">
+<circle class="text-surface-container-highest" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="4"></circle>
+<circle class="text-secondary" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="62.8" stroke-width="4"></circle>
+</svg>
+<span class="absolute font-headline text-2xl font-bold">15</span>
+</div>
+<button class="w-full py-4 rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold tracking-wide shadow-lg">
+                        Keep Watching
+                    </button>
+<button class="text-on-surface-variant text-xs font-medium hover:text-on-surface transition-colors">
+                        Stop Now
+                    </button>
+</div>
+</div>
+</section>
+<!-- Timer & Presets Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Large Timer Card -->
+<div class="md:col-span-2 bg-surface-container rounded-lg p-8 flex flex-col items-center justify-center space-y-4">
+<span class="text-on-surface-variant font-label text-xs tracking-widest uppercase">Remaining Time</span>
+<div class="font-headline text-7xl md:text-8xl font-extrabold tracking-tighter text-on-surface flex items-baseline">
+                    24<span class="text-secondary mx-1">:</span>42
+                </div>
+<div class="flex gap-4 pt-4">
+<button class="bg-surface-container-high text-secondary px-8 py-3 rounded-xl font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span> 5m
+                    </button>
+<button class="bg-surface-container-highest text-on-surface px-8 py-3 rounded-xl font-bold">
+                        Reset
+                    </button>
+</div>
+</div>
+<!-- Quick Presets -->
+<div class="bg-surface-container-low rounded-lg p-6 space-y-4 border border-outline-variant/10">
+<h4 class="font-headline font-semibold text-on-surface">Sleep Presets</h4>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-highest transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors" data-icon="potted_plant">potted_plant</span>
+<span class="text-sm font-medium">Power Nap</span>
+</div>
+<span class="text-xs font-bold text-on-surface-variant">20m</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-highest/40 border border-outline-variant/10 cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="bed">bed</span>
+<span class="text-sm font-medium">Deep Sleep</span>
+</div>
+<span class="text-xs font-bold text-on-surface-variant">45m</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-highest/40 border border-outline-variant/10 cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="infinite">indeterminate_question_box</span>
+<span class="text-sm font-medium">Continuous</span>
+</div>
+<span class="material-symbols-outlined text-xs text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Volume & Dimming - The Luma Slider -->
+<section class="bg-surface-container-high rounded-lg p-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="space-y-6">
+<div class="flex justify-between items-center">
+<span class="font-headline font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="volume_up">volume_up</span>
+                            Audio Fade
+                        </span>
+<span class="text-xs font-bold text-on-surface-variant">Smooth 2m</span>
+</div>
+<div class="relative w-full h-4 bg-surface-container rounded-lg group cursor-pointer">
+<div class="absolute inset-y-0 left-0 bg-primary rounded-lg" style="width: 65%;"></div>
+<div class="absolute top-1/2 left-[65%] -translate-y-1/2 w-6 h-6 bg-secondary rounded-full border-4 border-surface-container shadow-[0_0_12px_rgba(255,185,84,0.4)]"></div>
+</div>
+</div>
+<div class="space-y-6">
+<div class="flex justify-between items-center">
+<span class="font-headline font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="light_mode">light_mode</span>
+                            Screen Dim
+                        </span>
+<span class="text-xs font-bold text-on-surface-variant">To 10%</span>
+</div>
+<div class="relative w-full h-4 bg-surface-container rounded-lg group cursor-pointer">
+<div class="absolute inset-y-0 left-0 bg-primary rounded-lg" style="width: 30%;"></div>
+<div class="absolute top-1/2 left-[30%] -translate-y-1/2 w-6 h-6 bg-secondary rounded-full border-4 border-surface-container shadow-[0_0_12px_rgba(255,185,84,0.4)]"></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-[32px] bg-[#121319]/60 backdrop-blur-md shadow-[0_-4px_24px_rgba(0,0,0,0.4)]">
+<div class="flex justify-around items-center w-full px-4 pb-8 pt-4">
+<a class="flex flex-col items-center justify-center bg-[#1e1f26] text-[#ffb954] rounded-full px-5 py-1.5 transition-transform duration-400 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="timer">timer</span>
+<span class="text-[11px] font-medium tracking-wide font-label">Timer</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#909094] px-5 py-1.5 hover:text-[#e3e1ea] transition-colors transition-transform duration-400 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+<span class="text-[11px] font-medium tracking-wide font-label">Shortcuts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#909094] px-5 py-1.5 hover:text-[#e3e1ea] transition-colors transition-transform duration-400 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-[11px] font-medium tracking-wide font-label">Settings</span>
+</a>
+</div>
+</nav>
+</body></html>
