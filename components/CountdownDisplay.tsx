@@ -10,8 +10,14 @@ function formatTime(totalSeconds: number): string {
 }
 
 export function CountdownDisplay({ seconds }: CountdownDisplayProps) {
+  const isLow = seconds < 120
+
   return (
-    <span className="font-headline text-on-surface text-sm font-semibold tabular-nums">
+    <span className={`
+      font-headline text-sm font-semibold tabular-nums tracking-tight
+      transition-colors duration-1000
+      ${isLow ? 'text-secondary' : 'text-on-surface/60'}
+    `}>
       {formatTime(seconds)}
     </span>
   )
