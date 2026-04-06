@@ -56,11 +56,6 @@
   --font-label: "Manrope", sans-serif;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
 html,
 body {
@@ -87,4 +82,90 @@ body {
 /* Material Symbols */
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+/* ═══════════════════════════════════════════
+   LIQUID MIDNIGHT — Animations & Effects
+   ═══════════════════════════════════════════ */
+
+/* Breathing pulse — slow heartbeat rhythm */
+@keyframes breathe {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+
+/* Ambient orb drift */
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -20px) scale(1.1); }
+  50% { transform: translate(-20px, 15px) scale(0.95); }
+  75% { transform: translate(15px, 25px) scale(1.05); }
+}
+
+@keyframes drift-reverse {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-25px, 20px) scale(1.08); }
+  50% { transform: translate(20px, -15px) scale(0.92); }
+  75% { transform: translate(-10px, -25px) scale(1.03); }
+}
+
+/* Staggered fade-in */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Soft glow pulse for CTA */
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(186, 195, 255, 0.15), 0 0 60px rgba(186, 195, 255, 0.05); }
+  50% { box-shadow: 0 0 30px rgba(186, 195, 255, 0.25), 0 0 80px rgba(186, 195, 255, 0.1); }
+}
+
+/* Ring expand for wake check */
+@keyframes ringExpand {
+  0% { transform: scale(0.8); opacity: 0.6; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* Constellation twinkle */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.8; }
+}
+
+/* Utility classes */
+@utility animate-breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+@utility animate-drift {
+  animation: drift 20s ease-in-out infinite;
+}
+
+@utility animate-drift-reverse {
+  animation: drift-reverse 25s ease-in-out infinite;
+}
+
+@utility animate-glow-pulse {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+@utility animate-fade-up {
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@utility animate-fade-up-1 {
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+@utility animate-fade-up-2 {
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+@utility animate-fade-up-3 {
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+@utility animate-fade-up-4 {
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
 }

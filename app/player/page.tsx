@@ -64,7 +64,7 @@ function PlayerContent() {
           <button
             onClick={() => { releaseWakeLock(); reset(); router.push('/') }}
             aria-label="Zurück"
-            className="text-on-surface-variant hover:text-on-surface transition-colors duration-500"
+            className="text-on-surface-variant/60 hover:text-on-surface transition-colors duration-500"
           >
             <span className="material-symbols-outlined">arrow_back</span>
           </button>
@@ -72,11 +72,16 @@ function PlayerContent() {
         rightAction={<CountdownDisplay seconds={remaining} />}
       />
 
-      <main className="flex flex-col min-h-dvh bg-surface relative pt-20 pb-28 px-6">
+      {/* Ambient Background */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute -top-32 -right-32 w-[400px] h-[400px] rounded-full bg-primary/[0.03] blur-[100px] animate-drift" />
+      </div>
+
+      <main className="relative z-10 flex flex-col min-h-dvh bg-transparent pt-20 pb-28 px-6">
         {!videoId && (
-          <div className="flex flex-col items-center justify-center flex-1 gap-6 max-w-md mx-auto w-full">
-            <section className="bg-surface-container rounded-2xl p-6 w-full flex flex-col gap-4">
-              <h2 className="font-headline text-sm font-semibold tracking-wide uppercase text-on-surface-variant">
+          <div className="flex flex-col items-center justify-center flex-1 gap-6 max-w-md mx-auto w-full animate-fade-up">
+            <section className="bg-surface-container-high rounded-3xl p-6 w-full flex flex-col gap-4">
+              <h2 className="font-headline text-[11px] font-semibold tracking-[0.2em] uppercase text-on-surface-variant/70 pl-1">
                 Video auswählen
               </h2>
               <form onSubmit={handleUrlSubmit} className="flex flex-col gap-3">
@@ -85,13 +90,13 @@ function PlayerContent() {
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
                   placeholder="https://youtube.com/watch?v=..."
-                  className="w-full bg-surface-container-lowest text-on-surface px-4 py-4 rounded-xl text-base border-none focus:outline-none focus:ring-2 focus:ring-primary/20 font-body placeholder:text-on-surface-variant/40"
+                  className="w-full bg-surface-container-lowest/50 text-on-surface px-4 py-4 rounded-xl text-base border-none focus:outline-none focus:shadow-[0_0_0_2px_rgba(186,195,255,0.15)] transition-shadow duration-500 font-body placeholder:text-on-surface-variant/30"
                   autoFocus
                 />
                 {urlError && <p className="text-error text-sm">{urlError}</p>}
                 <button
                   type="submit"
-                  className="py-4 rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline font-bold text-lg transition-transform duration-500 active:scale-[0.98]"
+                  className="py-4 rounded-2xl bg-gradient-to-br from-primary via-primary/90 to-primary-container text-on-primary font-headline font-bold text-lg transition-transform duration-500 ease-out active:scale-[0.97] animate-glow-pulse"
                 >
                   Video laden
                 </button>
@@ -101,7 +106,7 @@ function PlayerContent() {
         )}
 
         {videoId && (
-          <div className="flex-1 flex flex-col rounded-2xl overflow-hidden">
+          <div className="flex-1 flex flex-col rounded-3xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.4)] animate-fade-up">
             <YouTubePlayer videoId={videoId} playerRef={playerRef} onReady={handlePlayerReady} />
           </div>
         )}
