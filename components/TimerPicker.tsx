@@ -16,17 +16,17 @@ export function TimerPicker({ value, onChange }: TimerPickerProps) {
 
   return (
     <div className="flex flex-col gap-4 w-full">
-      <div className="grid grid-cols-4 gap-2">
+      <div className="flex flex-wrap justify-center gap-3">
         {PRESETS.map((preset) => (
           <button
             key={preset}
             aria-pressed={value === preset}
             onClick={() => onChange(preset)}
             className={`
-              py-4 rounded-full text-xl font-label font-semibold transition-all duration-500
+              px-5 py-2.5 rounded-full text-sm font-label font-semibold transition-all duration-500
               ${value === preset
-                ? 'bg-secondary-container text-on-secondary-container'
-                : 'bg-surface-container-highest text-on-surface-variant'
+                ? 'bg-secondary-container text-on-secondary-container font-bold'
+                : 'bg-surface-container-highest text-on-surface hover:opacity-80'
               }
             `}
           >
@@ -34,18 +34,17 @@ export function TimerPicker({ value, onChange }: TimerPickerProps) {
           </button>
         ))}
       </div>
-      <div className="flex items-center gap-3">
-        <span className="text-on-surface-variant text-sm font-label flex-1">
-          Eigene Zeit (Min)
-        </span>
+      <div className="relative mt-2">
         <input
           type="number"
           min={1}
           max={180}
           value={value}
           onChange={handleCustomChange}
-          className="bg-surface-container-lowest text-on-surface text-xl text-center w-20 py-3 rounded-2xl border-none focus:outline-none focus:ring-2 focus:ring-primary/20"
+          placeholder="Eigene Zeit eingeben..."
+          className="w-full bg-surface-container-lowest text-on-surface text-sm font-body px-4 py-4 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-primary/20 placeholder:text-on-surface-variant/40"
         />
+        <div className="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant/60 font-label text-xs uppercase">Min</div>
       </div>
     </div>
   )

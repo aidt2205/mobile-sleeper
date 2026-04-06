@@ -34,7 +34,7 @@ export default function HomePage() {
 
         <button
           onClick={handleStart}
-          className="w-full py-5 rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary text-xl font-headline font-bold active:scale-95 transition-transform duration-500"
+          className="w-full py-5 rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary text-lg font-headline font-bold tracking-wide shadow-xl active:scale-[0.98] transition-transform duration-500"
         >
           Timer starten
         </button>

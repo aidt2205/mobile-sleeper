@@ -16,7 +16,7 @@ export function AppBar({ title = 'Sleeper', leftAction, rightAction }: AppBarPro
             bedtime
           </span>
         )}
-        <h1 className="font-headline text-xl font-bold tracking-tight text-primary">
+        <h1 className="font-headline text-xl font-bold tracking-tighter text-primary">
           {title}
         </h1>
       </div>

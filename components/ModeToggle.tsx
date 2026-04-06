@@ -21,8 +21,8 @@ export function ModeToggle({ value, onChange }: ModeToggleProps) {
               flex-1 flex items-center justify-center gap-2 py-3 rounded-xl
               text-base font-body font-medium transition-all duration-500
               ${active
-                ? 'bg-surface-container-highest text-on-surface'
-                : 'text-on-surface-variant'
+                ? 'bg-surface-container-highest text-on-surface shadow-sm border border-outline-variant/20'
+                : 'text-on-surface-variant hover:text-on-surface'
               }
             `}
           >

@@ -1,8 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "Edit(~/.claude/skills/project-init/**)"
+      "Edit(~/.claude/skills/project-init/**)",
+      "Edit(~/.claude/skills/stitch-adapter/**)"
     ]
   },
-  "disabledMcpjsonServers": ["playwright", "stitch"]
+  "disabledMcpjsonServers": [
+    "playwright",
+    "stitch"
+  ]
 }

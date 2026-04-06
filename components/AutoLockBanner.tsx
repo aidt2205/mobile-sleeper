@@ -6,7 +6,7 @@ interface AutoLockBannerProps {
 
 export function AutoLockBanner({ onDismiss }: AutoLockBannerProps) {
   return (
-    <div className="bg-surface-container-low p-4 rounded-2xl flex gap-4 items-start relative w-full">
+    <div className="bg-surface-container-low p-4 rounded-2xl flex gap-4 items-start relative w-full border border-outline-variant/10">
       <div className="bg-secondary/20 p-2 rounded-full">
         <span
           className="material-symbols-outlined text-secondary"
