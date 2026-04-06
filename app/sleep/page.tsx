@@ -50,7 +50,7 @@ export default function SleepPage() {
       <button
         aria-label="Schlafmodus beenden"
         onClick={() => router.push('/')}
-        className="absolute inset-0 w-full h-full cursor-none z-50 bg-transparent outline-none focus:outline-none"
+        className="absolute inset-0 w-full h-full cursor-none z-50 bg-transparent outline-none focus-visible:ring-2 focus-visible:ring-primary"
       />
     </main>
   )

@@ -72,34 +72,36 @@ function PlayerContent() {
         rightAction={<CountdownDisplay seconds={remaining} />}
       />
 
-      <main className="flex flex-col min-h-dvh bg-surface relative pt-16 pb-28">
+      <main className="flex flex-col min-h-dvh bg-surface relative pt-20 pb-28 px-6">
         {!videoId && (
-          <div className="flex flex-col items-center justify-center flex-1 px-6 gap-4">
-            <p className="text-on-surface-variant text-sm text-center font-label">
-              YouTube-Link einfügen
-            </p>
-            <form onSubmit={handleUrlSubmit} className="flex flex-col gap-3 w-full max-w-sm">
-              <input
-                type="url"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-                placeholder="https://youtube.com/watch?v=..."
-                className="bg-surface-container-lowest text-on-surface px-4 py-4 rounded-2xl text-base border-none focus:outline-none focus:ring-2 focus:ring-primary/20 w-full font-body placeholder:text-on-surface-variant/40"
-                autoFocus
-              />
-              {urlError && <p className="text-error text-sm">{urlError}</p>}
-              <button
-                type="submit"
-                className="py-4 rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline font-bold text-lg transition-transform duration-500 active:scale-95"
-              >
-                Video laden
-              </button>
-            </form>
+          <div className="flex flex-col items-center justify-center flex-1 gap-6 max-w-md mx-auto w-full">
+            <section className="bg-surface-container rounded-2xl p-6 w-full flex flex-col gap-4">
+              <h2 className="font-headline text-sm font-semibold tracking-wide uppercase text-on-surface-variant">
+                Video auswählen
+              </h2>
+              <form onSubmit={handleUrlSubmit} className="flex flex-col gap-3">
+                <input
+                  type="url"
+                  value={url}
+                  onChange={(e) => setUrl(e.target.value)}
+                  placeholder="https://youtube.com/watch?v=..."
+                  className="w-full bg-surface-container-lowest text-on-surface px-4 py-4 rounded-xl text-base border-none focus:outline-none focus:ring-2 focus:ring-primary/20 font-body placeholder:text-on-surface-variant/40"
+                  autoFocus
+                />
+                {urlError && <p className="text-error text-sm">{urlError}</p>}
+                <button
+                  type="submit"
+                  className="py-4 rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline font-bold text-lg transition-transform duration-500 active:scale-[0.98]"
+                >
+                  Video laden
+                </button>
+              </form>
+            </section>
           </div>
         )}
 
         {videoId && (
-          <div className="flex-1 flex flex-col">
+          <div className="flex-1 flex flex-col rounded-2xl overflow-hidden">
             <YouTubePlayer videoId={videoId} playerRef={playerRef} onReady={handlePlayerReady} />
           </div>
         )}

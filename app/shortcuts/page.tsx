@@ -27,23 +27,26 @@ function ShortcutsContent() {
     return (
       <>
         <AppBar />
-        <main className="w-full max-w-md mx-auto px-6 pt-24 pb-32 flex flex-col gap-8">
-          <div className="flex flex-col items-center gap-2">
+        <main className="w-full max-w-md mx-auto px-6 pt-24 pb-32 flex flex-col gap-6">
+          {/* Config Card */}
+          <section className="bg-surface-container rounded-2xl p-6 flex flex-col items-center gap-3">
             <span
-              className="material-symbols-outlined text-5xl text-secondary"
+              className="material-symbols-outlined text-4xl text-secondary"
               style={{ fontVariationSettings: "'FILL' 1" }}
             >
               timer
             </span>
-            <h2 className="text-2xl font-headline font-bold text-on-surface">Sleep Timer</h2>
+            <h2 className="text-xl font-headline font-bold text-on-surface">Sleep Timer</h2>
             <p className="text-on-surface-variant text-sm font-label">
               {minutes} Min · Helligkeit 0% · Do Not Disturb
             </p>
-          </div>
-          <div className="flex flex-col gap-4 w-full">
+          </section>
+
+          {/* Actions */}
+          <section className="flex flex-col gap-3">
             <button
               onClick={handleTrigger}
-              className="py-5 rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary text-xl font-headline font-bold transition-transform duration-500 active:scale-95"
+              className="w-full py-5 rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary text-xl font-headline font-bold transition-transform duration-500 active:scale-[0.98]"
             >
               Shortcut starten
             </button>
@@ -52,12 +55,12 @@ function ShortcutsContent() {
             </p>
             <button
               onClick={handleWakeUp}
-              className="py-4 rounded-xl bg-surface-container-high text-secondary text-lg font-headline font-semibold flex items-center justify-center gap-2 transition-transform duration-500 active:scale-95"
+              className="w-full py-4 rounded-xl bg-surface-container-high text-secondary text-lg font-headline font-semibold flex items-center justify-center gap-2 transition-transform duration-500 active:scale-[0.98]"
             >
               <span className="material-symbols-outlined">wb_sunny</span>
               Aufwachen
             </button>
-          </div>
+          </section>
         </main>
         <BottomNav />
       </>
