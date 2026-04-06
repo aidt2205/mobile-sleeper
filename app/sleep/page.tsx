@@ -1,9 +1,25 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+
+function useCurrentTime() {
+  const [time, setTime] = useState('')
+  useEffect(() => {
+    const update = () => {
+      const now = new Date()
+      setTime(`${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`)
+    }
+    update()
+    const interval = setInterval(update, 10000)
+    return () => clearInterval(interval)
+  }, [])
+  return time
+}
 
 export default function SleepPage() {
   const router = useRouter()
+  const time = useCurrentTime()
 
   return (
     <main className="relative min-h-dvh w-full flex flex-col items-center justify-center overflow-hidden bg-surface-container-lowest">
@@ -14,21 +30,18 @@ export default function SleepPage() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center gap-3 px-6">
-        <span
-          className="material-symbols-outlined text-secondary/20 text-3xl"
-          style={{ fontVariationSettings: "'FILL' 1" }}
-        >
-          bedtime
+      <div className="relative z-10 flex flex-col items-center px-6">
+        <span className="font-headline text-[120px] font-extrabold tracking-tighter text-on-surface/5 leading-none select-none">
+          {time}
         </span>
-        <span className="font-label text-sm tracking-widest text-on-surface/10 uppercase">
+        <span className="font-label text-sm tracking-widest text-on-surface/10 uppercase mt-4 select-none">
           Schlafmodus aktiv
         </span>
       </div>
 
       {/* Exit instruction */}
       <div className="absolute bottom-16 left-0 w-full flex justify-center z-20">
-        <p className="font-label text-xs tracking-widest text-on-surface/10 font-medium">
+        <p className="font-label text-xs tracking-widest text-on-surface/10 font-medium select-none">
           Tippen zum Fortfahren
         </p>
       </div>
