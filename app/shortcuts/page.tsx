@@ -28,37 +28,51 @@ function ShortcutsContent() {
       <>
         <AppBar />
         <main className="w-full max-w-md mx-auto px-6 pt-24 pb-32 flex flex-col gap-6">
-          {/* Config Card */}
-          <section className="bg-surface-container rounded-2xl p-6 flex flex-col items-center gap-3">
-            <span
-              className="material-symbols-outlined text-4xl text-secondary"
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              timer
-            </span>
-            <h2 className="text-xl font-headline font-bold text-on-surface">Sleep Timer</h2>
-            <p className="text-on-surface-variant text-sm font-label">
-              {minutes} Min · Helligkeit 0% · Do Not Disturb
-            </p>
+          {/* Config Card — Stitch-Style */}
+          <section className="bg-surface-container rounded-2xl p-6 relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-4 opacity-10">
+              <span className="material-symbols-outlined text-8xl">auto_awesome</span>
+            </div>
+            <div className="relative z-10">
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-secondary mb-1 block font-label">
+                Aktuelle Konfig
+              </span>
+              <h3 className="text-xl font-headline font-bold text-on-surface">Sleep Timer</h3>
+              <p className="text-sm text-on-surface-variant font-body">
+                {minutes} Min · Helligkeit 0% · Do Not Disturb
+              </p>
+            </div>
           </section>
 
-          {/* Actions */}
+          {/* Actions — Row-Buttons */}
           <section className="flex flex-col gap-3">
             <button
               onClick={handleTrigger}
-              className="w-full py-5 rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary text-xl font-headline font-bold transition-transform duration-500 active:scale-[0.98]"
+              className="w-full flex items-center justify-between px-6 py-5 rounded-xl bg-surface-container-high border-l-4 border-secondary hover:bg-surface-container-highest transition-colors duration-500 active:scale-[0.98]"
             >
-              Shortcut starten
+              <div className="flex items-center gap-4">
+                <span
+                  className="material-symbols-outlined text-secondary"
+                  style={{ fontVariationSettings: "'FILL' 1" }}
+                >
+                  play_circle
+                </span>
+                <span className="font-headline font-bold text-lg text-on-surface">Shortcut starten</span>
+              </div>
+              <span className="material-symbols-outlined text-on-surface-variant">chevron_right</span>
             </button>
             <p className="text-on-surface-variant/60 text-xs text-center font-label">
               Wechsle danach zu Netflix, YouTube oder einer anderen App
             </p>
             <button
               onClick={handleWakeUp}
-              className="w-full py-4 rounded-xl bg-surface-container-high text-secondary text-lg font-headline font-semibold flex items-center justify-center gap-2 transition-transform duration-500 active:scale-[0.98]"
+              className="w-full flex items-center justify-between px-6 py-5 rounded-xl bg-surface-container-lowest border border-outline-variant/10 hover:bg-surface-container-low transition-colors duration-500 active:scale-[0.98]"
             >
-              <span className="material-symbols-outlined">wb_sunny</span>
-              Aufwachen
+              <div className="flex items-center gap-4">
+                <span className="material-symbols-outlined text-primary">wb_sunny</span>
+                <span className="font-headline font-semibold text-on-surface-variant">Aufwachen</span>
+              </div>
+              <span className="material-symbols-outlined text-on-surface-variant/40">chevron_right</span>
             </button>
           </section>
         </main>

@@ -23,7 +23,7 @@ export function TimerPicker({ value, onChange }: TimerPickerProps) {
             aria-pressed={value === preset}
             onClick={() => onChange(preset)}
             className={`
-              min-w-[56px] px-5 py-3 rounded-full text-base font-label font-semibold
+              min-w-[56px] min-h-11 px-5 py-3 rounded-full text-base font-label font-semibold
               transition-all duration-500 active:scale-95
               ${value === preset
                 ? 'bg-secondary-container text-on-secondary-container font-bold'
@@ -44,7 +44,7 @@ export function TimerPicker({ value, onChange }: TimerPickerProps) {
           onChange={handleCustomChange}
           aria-label="Dauer in Minuten"
           placeholder="Eigene Zeit eingeben..."
-          className="w-full bg-surface-container text-on-surface text-sm font-body px-4 py-4 rounded-xl border-none focus:outline-none focus:ring-2 focus:ring-primary/20 placeholder:text-on-surface-variant/40"
+          className="w-full bg-surface-container-lowest text-on-surface text-sm font-body px-4 py-4 rounded-xl border-none focus:outline-none focus:ring-2 focus:ring-primary/20 placeholder:text-on-surface-variant/40"
         />
         <div className="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant/60 font-label text-xs uppercase" id="duration-suffix">
           Min

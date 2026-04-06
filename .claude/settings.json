@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Edit(~/.claude/skills/project-init/**)",
-      "Edit(~/.claude/skills/stitch-adapter/**)"
+      "Edit(~/.claude/skills/stitch-adapter/**)",
+      "Skill(commit-commands:commit-push-pr)",
+      "Skill(commit-commands:commit-push-pr:*)"
     ]
   },
   "disabledMcpjsonServers": [

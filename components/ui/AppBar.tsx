@@ -6,7 +6,7 @@ interface AppBarProps {
 
 export function AppBar({ title = 'Sleeper', leftAction, rightAction }: AppBarProps) {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex h-16 items-center justify-between px-6 bg-surface/80 backdrop-blur-xl">
+    <header className="fixed top-0 left-0 right-0 z-50 flex h-16 items-center justify-between px-6 bg-surface/80 backdrop-blur-xl safe-area-pt">
       <div className="flex items-center gap-2">
         {leftAction || (
           <span

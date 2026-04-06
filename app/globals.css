@@ -75,6 +75,15 @@ body {
   color-scheme: dark;
 }
 
+/* Safe Area — Notched Devices (iPhone) */
+@utility safe-area-pt {
+  padding-top: env(safe-area-inset-top);
+}
+
+@utility safe-area-pb {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
 /* Material Symbols */
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
